@@ -1,19 +1,9 @@
-# gotify/plugin-template [![](https://travis-ci.org/gotify/plugin-template.svg?branch=master)](https://travis-ci.org/gotify/plugin-template)
+# gotify-archsec [![Build Status](https://travis-ci.org/buckket/gotify-archsec.svg?branch=master)](https://travis-ci.org/buckket/gotify-archsec)
 
-A plugin template for [gotify/server](https://github.com/gotify/server)
-using [gotify/plugin-api](https://github.com/gotify/plugin-api).
+A plugin for [gotify/server](https://github.com/gotify/server) which polls the [Arch Linux Security](https://security.archlinux.org/) 
+[feed](https://security.archlinux.org/advisory/feed.atom) for new advisories and sends out messages when needed.
 
-## Getting Started
-
-1. Clone, fork or copy this repository.
-1. Change `PLUGIN_NAME` in [Makefile](Makefile).
-1. Setup building on every release
-   * Enable travis-ci in your repository.
-   * Add `GH_TOKEN` environment variable see [travis-ci docs](https://docs.travis-ci.com/user/deployment/pages/#setting-the-github-token).
-1. Implement your plugin. See [plugin docs](https://gotify.net/docs/plugin).
-1. Create a release to automatically build the plugin.
-
-*When you're done, feel free to add your plugin to [gotify/contrib](https://github.com/gotify/contrib).*
+This plugin can easily be modified to watch any other RSS/Atom feed for new entries and act upon it.
 
 ## Building
 
@@ -27,3 +17,15 @@ The resulting shared object will be compatible with gotify/server version 2.0.1.
 ```bash
 $ make GOTIFY_VERSION="v2.0.1" FILE_SUFFIX="for-gotify-v2.0.1" build
 ```
+
+## Installation
+
+Copy built shared object to the gotify plugin directory and restart gotify.
+
+## Configuration
+
+- `refresh_interval`: Polling interval in seconds
+
+## License
+
+GNU GPLv3+
